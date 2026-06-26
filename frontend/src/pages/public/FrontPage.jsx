@@ -23,6 +23,14 @@ const FrontPage = () => {
   
   const navigate = useNavigate();
 
+  // 🚀 WAKE UP CALL TO BACKEND (Render Free Tier ke liye Masterstroke)
+  useEffect(() => {
+    // Ye background mein chupchap call karega taaki Render ka server neend se jaag jaye
+    fetch(`${API_BASE_URL}/`)
+      .then(res => console.log("Backend wake-up call successful! Server is awake 🟢"))
+      .catch(err => console.log("Backend wake-up call sent, server is booting up 🟡"));
+  }, []);
+
   // Dark Theme Apply & Cleanup (Taaki Dashboard ka design kharab na ho)
   useEffect(() => {
     const originalHtmlBg = document.documentElement.style.backgroundColor;
@@ -41,6 +49,7 @@ const FrontPage = () => {
     document.body.style.overscrollBehavior = 'none';
 
     return () => {
+      // Page se bahar aane par purana color wapas
       document.documentElement.style.backgroundColor = originalHtmlBg;
       document.body.style.backgroundColor = originalBodyBg;
       document.body.style.overflowX = originalOverflowX;
@@ -293,7 +302,7 @@ const FrontPage = () => {
             {/* 🚀 MODAL OPEN BUTTON */}
             <button onClick={() => setShowLoginModal(true)}
               className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/10 to-orange-500/10 px-5 py-2.5 text-sm font-bold text-amber-300 transition hover:border-amber-400 hover:bg-amber-400 hover:text-stone-950">
-              <span>Sign In</span>
+              <Phone size={18} /><span>Sign In</span>
             </button>
           </div>
 
@@ -317,7 +326,7 @@ const FrontPage = () => {
               {/* 🚀 MODAL OPEN BUTTON (Mobile) */}
               <button onClick={() => { setShowLoginModal(true); setMobileMenuOpen(false); }}
                 className="w-full rounded-2xl bg-gradient-to-r from-amber-400 to-amber-600 px-5 py-4 text-center font-bold text-stone-950 shadow-xl flex items-center justify-center gap-2">
-                <span>Sign In</span>
+                <Phone size={18} /><span>Sign In</span>
               </button>
             </div>
           </Container>
