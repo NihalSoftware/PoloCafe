@@ -302,7 +302,7 @@ const FrontPage = () => {
             {/* 🚀 MODAL OPEN BUTTON */}
             <button onClick={() => setShowLoginModal(true)}
               className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-gradient-to-r from-amber-500/10 to-orange-500/10 px-5 py-2.5 text-sm font-bold text-amber-300 transition hover:border-amber-400 hover:bg-amber-400 hover:text-stone-950">
-              <Phone size={18} /><span>Sign In</span>
+              <span>Sign In</span>
             </button>
           </div>
 
